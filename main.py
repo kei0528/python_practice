@@ -1,5 +1,5 @@
-total = 0
-for i in range(2, 102, 2):
-  total += i
+count = 0
+while count < 6:
+  count +=1
+  print(count)
   
-print(i)
