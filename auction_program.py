@@ -5,6 +5,7 @@ all_participants_entered = False
 
 
 def add_bidding () :
+  '''add bidder name and price to amount'''
   name = input('What is your name?\n')
   bid_input = input('What\'s your bid?\n')
   
@@ -27,10 +28,12 @@ def add_bidding () :
   os.system('clear')
 
 
+# Start bidding
 while (not all_participants_entered) :
   add_bidding()
   
   
+# Calculate heighest bidder
 highest_bids = [
   {
   "name": "",
