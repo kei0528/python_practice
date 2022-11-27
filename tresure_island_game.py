@@ -1,4 +1,5 @@
-print('''
+print(
+    '''
 *******************************************************************************
           |                   |                  |                     |
  _________|________________.=""_;=.______________|_____________________|_______
@@ -19,25 +20,26 @@ ____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
 ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/_____ /
 *******************************************************************************
-''')
+'''
+)
 print("Welcome to Treasure Island.")
-print("Your mission is to find the treasure.") 
+print("Your mission is to find the treasure.")
 
 
-step1 = input('Go Left or Right? ')
-if (step1 == 'Left') : 
-  step2 = input('Swim oe Wait? ')
+step1 = input("Go Left or Right? ")
+if step1 == "Left":
+    step2 = input("Swim oe Wait? ")
 
-  if(step2 == 'Wait') :
-    step3 = input('Which door? Red, Blue, Yellow ')
-    
-    if(step3 != 'Yellow') :
-      print('Game over.')
-    else: 
-      print('You Win!')
-      
-  else:
-    print('Game Over.')
+    if step2 == "Wait":
+        step3 = input("Which door? Red, Blue, Yellow ")
 
-else :
-  print('Game Over.')
+        if step3 != "Yellow":
+            print("Game over.")
+        else:
+            print("You Win!")
+
+    else:
+        print("Game Over.")
+
+else:
+    print("Game Over.")

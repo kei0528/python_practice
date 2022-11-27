@@ -1,56 +1,88 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+]
 
 can_start = True
 
-def start_cipher () :
-  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
-  while not direction == "decode" and not direction == "encode" :
-    direction = input("Please type correct value. 'encode' or 'decode' \n")
+def start_cipher():
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
-  text = input("Type your message:\n").lower()
+    while not direction == "decode" and not direction == "encode":
+        direction = input("Please type correct value. 'encode' or 'decode' \n")
 
-  shift_input = input("Type the shift number:\n")
+    text = input("Type your message:\n").lower()
 
-  while not shift_input.isdigit() :
-    shift_input = input ("Value is not correct. Please enter the number: \n")
-    
-  shift = int(shift_input)
+    shift_input = input("Type the shift number:\n")
 
-  if direction == "decode":
-    shift = -shift
-    
+    while not shift_input.isdigit():
+        shift_input = input("Value is not correct. Please enter the number: \n")
 
-  cipher_text = []
+    shift = int(shift_input)
 
-  for string in text :
-    if not string in alphabet :
-      cipher_text.append(string)
-    
-    else :
-      index_of_string = alphabet.index(string)
-      index_of_string_after_processing = index_of_string + shift
-      if index_of_string_after_processing > len(alphabet) - 1:
-        index_of_string_after_processing = index_of_string_after_processing % len(alphabet) 
+    if direction == "decode":
+        shift = -shift
 
-      elif index_of_string_after_processing < - (len(alphabet) - 1):  
-        index_of_string_after_processing = index_of_string_after_processing % - (len(alphabet))
-        
-      cipher_text.append(alphabet[index_of_string_after_processing])
-      
+    cipher_text = []
 
-  print(f'''
+    for string in text:
+        if not string in alphabet:
+            cipher_text.append(string)
+
+        else:
+            index_of_string = alphabet.index(string)
+            index_of_string_after_processing = index_of_string + shift
+            if index_of_string_after_processing > len(alphabet) - 1:
+                index_of_string_after_processing = (
+                    index_of_string_after_processing % len(alphabet)
+                )
+
+            elif index_of_string_after_processing < -(len(alphabet) - 1):
+                index_of_string_after_processing = index_of_string_after_processing % -(
+                    len(alphabet)
+                )
+
+            cipher_text.append(alphabet[index_of_string_after_processing])
+
+    print(
+        f"""
   /////////////////////////////////////////////////////////////////
 
   Here's result --- >> {''.join(cipher_text)}
 
   ////////////////////////////////////////////////////////////////
-        ''')
-  
-  play_agein =  input('Do you want try again? "yes" or "no": \n') == "yes"
-  
-  if play_agein :
-    start_cipher()
-  
+        """
+    )
+
+    play_agein = input('Do you want try again? "yes" or "no": \n') == "yes"
+
+    if play_agein:
+        start_cipher()
+
 
 start_cipher()
